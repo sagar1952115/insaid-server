@@ -2,6 +2,7 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 dotenv.config({ path: "./.env" });
 
@@ -10,6 +11,7 @@ console.log(process.env.PASSWORD);
 console.log(process.env.RECIEVER);
 const PORT = process.env.PORT || 3000;
 const app = express();
+app.use(cors());
 var transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
